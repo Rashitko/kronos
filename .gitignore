@@ -8,3 +8,5 @@
 /spec/reports/
 /tmp/
 .idea/
+install.sh
+kronos-pixel-0.1.0.gem
