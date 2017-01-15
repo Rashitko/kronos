@@ -2,7 +2,8 @@ module Kronos
   class KronosRequest < ActiveRecord::Base
 
     belongs_to :kronos_fragment
-    has_many :kronos_log_entries
+    has_many :kronos_log_entries, dependent: :destroy
+
     counter_culture :kronos_fragment, column_name: 'kronos_requests_count'
 
     serialize :request_params, JSON

@@ -11,8 +11,8 @@ require 'active_admin'
 
 module Kronos
   def kronos_log
-    @log_entries = []
     start = Time.now.to_f
+    @log_entries = []
     @kronos_request = KronosRequest.new
     exception = nil
     begin

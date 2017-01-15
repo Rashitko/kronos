@@ -15,7 +15,10 @@ module Kronos
 
     def is_excluded?(path)
       @excluded_paths.each do |regex|
-        return true if path.match(regex)
+        if path.match(regex)
+          puts "Path #{path} is excluded from Kronos based on #{regex} regex."
+          return true
+        end
       end
       false
     end
