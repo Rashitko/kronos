@@ -8,12 +8,11 @@ module Kronos
     source_root File.expand_path('../templates', __FILE__)
 
     def create_migration_file
-      migration_template 'kronos_migration.erb.rb', "db/migrate/create_kronos_fragments.rb"
-    end
-
-    def create_model_file
-      copy_file 'model_kronos_fragment.rb', 'app/models/kronos_fragment.rb'
-      copy_file 'admin_kronos_fragment.rb', 'app/admin/kronos_fragment.rb'
+      migration_template 'kronos_fragment_migration.rb', 'db/migrate/create_kronos_fragments.rb'
+      migration_template 'kronos_request_migration.rb', 'db/migrate/create_kronos_requests.rb'
+      migration_template 'kronos_log_entry_migration.rb', 'db/migrate/create_kronos_log_entries.rb'
+      generate 'counter_culture', 'KronosFragment kronos_requests_count'
+      template 'kronos_config.rb', 'config/initializers/kronos.rb'
     end
 
   end

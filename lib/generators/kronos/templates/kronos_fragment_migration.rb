@@ -1,11 +1,10 @@
 class CreateKronosFragments < ActiveRecord::Migration
   def change
     create_table :kronos_fragments do |t|
-      t.integer :duration
-      t.string :params
-      t.string :request_method
-      t.string :source_ip
-      t.integer :response_code
+      t.string :request_path
+      t.integer :average_duration
+      t.integer :longest_duration
+      t.references :longest_request
 
       t.timestamps null: false
     end
