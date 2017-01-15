@@ -3,10 +3,11 @@ require 'kronos/configuration'
 
 module Kronos
   class Configuration
-    attr_accessor :excluded_paths
+    attr_accessor :excluded_paths, :excluded_params
 
     def initialize
       @excluded_paths = []
+      @excluded_params = []
     end
 
     def exclude_path(path)

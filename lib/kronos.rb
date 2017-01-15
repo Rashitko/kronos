@@ -26,7 +26,7 @@ module Kronos
       fragment = KronosFragment.find_or_create_by(fragment_hash)
 
       request_hash = {}
-      request_hash[:request_params] = params.except('action', 'controller', 'format').to_json
+      request_hash[:request_params] = params.except(*Kronos.configuration.excluded_params).to_json
       request_hash[:request_method] = request.method
       request_hash[:remote_ip] = request.remote_ip
       request_hash[:duration] = ((Time.now.to_f - start) * 1000).ceil
