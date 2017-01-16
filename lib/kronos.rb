@@ -34,6 +34,7 @@ module Kronos
       request_hash[:controller] = params[:controller]
       request_hash[:action] = params[:action]
       @kronos_request.update_attributes(request_hash)
+      puts "saving logs"
       @log_entries.map(&:save!)
       @kronos_request.save!
     end
